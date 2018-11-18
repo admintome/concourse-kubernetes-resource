@@ -31,7 +31,8 @@ deploy() {
     [ -n "$IMAGE" ] || exit 1
     [ -n "$CONTAINER" ] || exit 1
 
-    $KUBECTL get deployments --show-labels --output=json > /tmp/deployments.json
+    # $KUBECTL get deployments --show-labels --output=json > /tmp/deployments.json
+    $KUBECTL get deployments --output=json > /tmp/deployments.json
 
     if [[ -n "$DEPLOYMENT_PATH" ]] && [[ "$DEPLOYMENT_PATH" != "null" ]] && [[ -n "$IMG_PREFIX" ]] && [[ "$IMG_PREFIX" != "null" ]]; then
         echo "Deployment path set to $DEPLOYMENT_PATH"
